@@ -1,0 +1,264 @@
+/* =========================
+   1) Base + Theme Variables
+   ========================= */
+:root {
+  --bg-black: #090b0f;
+  --bg-gray: #141922;
+  --bg-blue: #1a2233;
+  --panel-dark: rgba(18, 23, 33, 0.82);
+  --panel-border: rgba(159, 176, 209, 0.18);
+  --text-main: #e7ebf4;
+  --text-muted: #a8b1c4;
+  --accent-red: #b23a48;
+  --accent-red-soft: rgba(178, 58, 72, 0.42);
+  --accent-blue: #31496f;
+  --shadow-main: 0 18px 40px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 22px rgba(49, 73, 111, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+/* =========================
+   2) App Background
+   ========================= */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-main);
+  background: radial-gradient(circle at 20% 20%, #1a2233 0%, #0e121a 45%, #090b0f 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle animated background texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.015) 0,
+      rgba(255, 255, 255, 0.015) 1px,
+      transparent 1px,
+      transparent 28px
+    ),
+    radial-gradient(circle at 70% 35%, rgba(178, 58, 72, 0.08), transparent 38%),
+    radial-gradient(circle at 25% 80%, rgba(49, 73, 111, 0.16), transparent 42%);
+  animation: backgroundShift 16s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes backgroundShift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-2%, -1%, 0) scale(1.04);
+  }
+}
+
+/* Keep content above the animated background */
+.app-header,
+.app-main,
+.app-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   3) Header / Title
+   ========================= */
+.app-header {
+  text-align: center;
+}
+
+.app-title {
+  margin: 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #f1f4fa;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55), 0 0 16px rgba(178, 58, 72, 0.25);
+}
+
+/* =========================
+   4) Main Card Container
+   ========================= */
+.app-main {
+  width: 400px;
+  height: 300px;
+  border-radius: 16px;
+  padding: 18px;
+  background: linear-gradient(160deg, var(--panel-dark), rgba(12, 16, 23, 0.92));
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow-main), var(--shadow-glow), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* =========================
+   5) Excuse Report Area
+   ========================= */
+.excuse-display-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.excuse-text {
+  margin: 0;
+  min-height: 120px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(126, 145, 180, 0.25);
+  background: linear-gradient(180deg, rgba(11, 14, 20, 0.85), rgba(16, 21, 30, 0.95));
+  color: var(--text-main);
+  line-height: 1.55;
+  font-size: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03), inset 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================
+   6) Button Styling
+   ========================= */
+.generator-controls-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Police badge style on each side of the button */
+.generator-controls-section::before,
+.generator-controls-section::after {
+  content: "\1F6E1\FE0F";
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 132, 0.35));
+}
+
+.generate-excuse-button {
+  border: 1px solid rgba(178, 58, 72, 0.55);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #242d41 0%, #1a2131 100%);
+  color: #f5f7fb;
+  padding: 11px 20px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(178, 58, 72, 0.32);
+}
+
+.generate-excuse-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(210, 89, 103, 0.8);
+  background: linear-gradient(180deg, #2a354b 0%, #1f2739 100%);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.42), 0 0 14px rgba(178, 58, 72, 0.4);
+}
+
+.generate-excuse-button:active {
+  transform: translateY(0);
+}
+
+.generate-excuse-button:focus-visible {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 2px;
+}
+
+/* =========================
+   7) Optional Hidden Data Area
+   ========================= */
+/* The app data list is useful for development, but hidden in the final UI. */
+.excuse-data-section {
+  display: none;
+}
+
+/* =========================
+   8) Footer
+   ========================= */
+.app-footer {
+  text-align: center;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 0.78rem;
+  color: rgba(168, 177, 196, 0.8);
+  letter-spacing: 0.04em;
+}
+
+/* =========================
+   9) Responsive Adjustments
+   ========================= */
+@media (max-width: 520px) {
+  body {
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .app-title {
+    font-size: 1.35rem;
+    letter-spacing: 0.08em;
+  }
+
+  .app-main {
+    width: min(400px, 94vw);
+    height: auto;
+    min-height: 300px;
+    padding: 14px;
+  }
+
+  .excuse-text {
+    min-height: 110px;
+    font-size: 0.96rem;
+  }
+
+  .generate-excuse-button {
+    width: 100%;
+  }
+
+  .generator-controls-section {
+    gap: 8px;
+  }
+
+  .generator-controls-section::before,
+  .generator-controls-section::after {
+    font-size: 1.2rem;
+  }
+}

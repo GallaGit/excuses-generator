@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excuse Generator</title>
+    <link rel="stylesheet" href="style.css" />      
+  </head>
+  <body>
+    <!-- App Header -->
+    <header class="app-header">
+      <h1 class="app-title">Excuse Generator</h1>
+    </header>
+
+    <!-- Main App Content -->
+    <main class="app-main">
+      <!-- Excuse Display Section -->
+      <section class="excuse-display-section" aria-labelledby="excuse-result-heading">
+        <h2 id="excuse-result-heading" class="section-title">Generated Excuse</h2>
+        <p class="excuse-text" id="excuse-text">Your excuse will appear here.</p>
+      </section>
+
+      <!-- Generator Button Section -->
+      <section class="generator-controls-section" aria-label="Excuse controls">
+        <button type="button" class="generate-excuse-button" id="generate-excuse-button">
+          Generate Excuse
+        </button>
+      </section>
+
+      <!-- Excuse Parts Data Section (for future JavaScript use) -->
+      <section class="excuse-data-section" aria-label="Excuse parts options">
+        <!-- 1) Who -->
+        <article class="excuse-part-group excuse-part-who" aria-labelledby="who-options-title">
+          <h2 id="who-options-title" class="part-title">Who</h2>
+          <ul class="part-options-list who-options-list">
+            <li class="part-option">My dog 🐶</li>
+            <li class="part-option">My grandmother 👵</li>
+            <li class="part-option">The neighbor 🧑</li>
+            <li class="part-option">A police officer 👮</li>
+          </ul>
+        </article>
+
+        <!-- 2) Action Verb -->
+        <article class="excuse-part-group excuse-part-action-verb" aria-labelledby="action-verb-options-title">
+          <h2 id="action-verb-options-title" class="part-title">Action Verb</h2>
+          <ul class="part-options-list action-verb-options-list">
+            <li class="part-option">destroyed</li>
+            <li class="part-option">stole</li>
+            <li class="part-option">ate</li>
+            <li class="part-option">broke</li>
+          </ul>
+        </article>
+
+        <!-- 3) What Happened -->
+        <article class="excuse-part-group excuse-part-what-happened" aria-labelledby="what-happened-options-title">
+          <h2 id="what-happened-options-title" class="part-title">What Happened</h2>
+          <ul class="part-options-list what-happened-options-list">
+            <li class="part-option">my homework 📝</li>
+            <li class="part-option">my phone 📱</li>
+            <li class="part-option">the car 🚗</li>
+            <li class="part-option">the internet router 📡</li>
+          </ul>
+        </article>
+
+        <!-- 4) When (past time expressions only) -->
+        <article class="excuse-part-group excuse-part-when" aria-labelledby="when-options-title">
+          <h2 id="when-options-title" class="part-title">When</h2>
+          <ul class="part-options-list when-options-list">
+            <li class="part-option">yesterday</li>
+            <li class="part-option">last night</li>
+            <li class="part-option">two days ago</li>
+            <li class="part-option">this morning</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <!-- App Footer -->
+    <footer class="app-footer">
+      <p class="footer-text">Simple Excuse Generator App</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
